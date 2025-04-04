@@ -1,3 +1,47 @@
+# Website Builder Pro - Dynamic Niche Website
+
+This project is a dynamic website for a website building service that targets small niche businesses. The website displays content tailored to different business niches based on the URL path.
+
+## Features
+
+- Dynamic content based on URL path (e.g., `/dentists`, `/lawyers`, `/mechanics`, `/sports_clubs`)
+- Responsive design that works on all devices
+- Tailwind CSS for styling
+- React + TypeScript + Vite
+
+## URL Examples
+
+- `/` - Default website builder service
+- `/dentists` - Website service targeting dental practices
+- `/lawyers` - Website service targeting law firms
+- `/mechanics` - Website service targeting auto repair shops
+- `/sports_clubs` - Website service targeting sports clubs
+
+## Adding New Niches
+
+To add a new niche, edit the `src/data/niches.ts` file and add your niche data to the `nichesData` object.
+
+## Running the Project
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Technologies Used
+
+- React 19
+- TypeScript
+- Vite
+- React Router
+- Tailwind CSS
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
