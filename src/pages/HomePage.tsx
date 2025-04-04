@@ -6,9 +6,9 @@ const HomePage = () => {
   const content = getNicheContent(niche);
   
   return (
-    <div>
+    <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-b from-blue-600 to-blue-800 text-white py-20 w-full">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{content.headline}</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-10">{content.description}</p>
@@ -22,7 +22,7 @@ const HomePage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 w-full text-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">How We Help {niche ? niche.replace('_', ' ') : 'Businesses'}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -41,7 +41,7 @@ const HomePage = () => {
       </section>
 
       {/* Features Section */}
-      <section id="services" className="py-16">
+      <section id="services" className="py-16 w-full text-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -61,7 +61,7 @@ const HomePage = () => {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-16 bg-gray-50">
+      <section id="portfolio" className="py-16 bg-gray-50 w-full text-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Our {niche ? niche.replace('_', ' ') : 'Business'} Website Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -82,7 +82,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section id="testimonials" className="py-16 bg-blue-600 text-white">
+      <section id="testimonials" className="py-16 bg-blue-600 text-white w-full">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-12">What Our Clients Say</h2>
           <div className="max-w-3xl mx-auto">
@@ -94,7 +94,7 @@ const HomePage = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-16">
+      <section className="py-16 w-full text-gray-800">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">{content.callToAction}</h2>
           <a 
@@ -107,7 +107,7 @@ const HomePage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-16 bg-gray-50">
+      <section id="faq" className="py-16 bg-gray-50 w-full text-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           <div className="max-w-3xl mx-auto space-y-8">
@@ -122,7 +122,7 @@ const HomePage = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16">
+      <section id="contact" className="py-16 w-full text-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
           <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
