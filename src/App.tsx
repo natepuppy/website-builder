@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
+import ServicesPage from './pages/ServicesPage';
 
 function App() {
   return (
@@ -14,6 +15,11 @@ function App() {
         <Route path="/:niche" element={
           <MainLayout>
             <HomePage />
+          </MainLayout>
+        } />
+        <Route path="/services" element={
+          <MainLayout>
+            <ServicesPage />
           </MainLayout>
         } />
         <Route path="*" element={<Navigate to="/" replace />} />
