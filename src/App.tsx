@@ -7,21 +7,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={
-          <MainLayout>
-            <HomePage />
-          </MainLayout>
-        } />
-        <Route path="/:niche" element={
-          <MainLayout>
-            <HomePage />
-          </MainLayout>
-        } />
-        <Route path="/services" element={
-          <MainLayout>
-            <ServicesPage />
-          </MainLayout>
-        } />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:niche" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+        </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

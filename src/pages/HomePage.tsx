@@ -9,103 +9,109 @@ const HomePage = () => {
   
   return (
     <div className="w-full">
-      {/* Hero Section with Animated Background */}
-      <section className="relative overflow-hidden py-24 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white w-full">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <div className="absolute top-10 left-10 w-40 h-40 rounded-full bg-pink-500 mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-          <div className="absolute top-20 right-20 w-60 h-60 rounded-full bg-indigo-500 mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-10 left-1/4 w-80 h-80 rounded-full bg-purple-500 mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+      {/* Hero Section */}
+      <section className="section-lg gradient-light pattern-dots w-full overflow-hidden">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 md:mb-8 tracking-tight max-w-4xl mx-auto animate-fadeIn">
             {content.headline.split(' ').map((word, i) => (
-              <span key={i} className={i % 3 === 1 ? "text-pink-300" : ""}>{word} </span>
+              <span key={i} className={i % 3 === 1 ? "text-[var(--primary-color)]" : ""}>{word} </span>
             ))}
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-indigo-100">
+          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 md:mb-12 text-[var(--gray-600)] animate-slideUp animation-delay-100">
             {content.description}
           </p>
           <Link 
             to="#contact" 
-            className="bg-white text-indigo-600 px-8 py-4 rounded-full text-lg font-bold hover:bg-pink-100 hover:text-pink-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
+            className="btn btn-primary px-7 py-3 text-base md:text-lg inline-block animate-slideUp animation-delay-200"
           >
             Get Started
           </Link>
         </div>
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-          <svg className="relative block w-full h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="white"></path>
-          </svg>
-        </div>
       </section>
+
+      <div className="divider-center"></div>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white w-full text-gray-800">
+      <section id="benefits" className="section bg-light w-full">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">How We Help {businessType}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {content.benefits.map((benefit: string, index: number) => (
-              <div key={index} className="bg-gradient-to-br from-indigo-50 to-pink-50 p-6 rounded-xl shadow-md text-center fun-card">
-                <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 fun-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+          <div className="text-center mb-16">
+            <span className="bg-[var(--primary-color)]/10 text-[var(--primary-color)] text-sm font-medium px-4 py-1.5 rounded-lg inline-block mb-4">BENEFITS</span>
+            <h2 className="text-3xl md:text-4xl font-semibold max-w-4xl mx-auto">How We Help {businessType}</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {content.benefits.map((benefit: string, index: number) => {
+              return (
+                <div key={index} className="card p-6 md:p-8 text-center">
+                  <div className="bg-primary w-12 h-12 text-white rounded-full flex items-center justify-center mx-auto mb-4 md:mb-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-base md:text-lg font-normal">{benefit}</p>
                 </div>
-                <p className="text-lg font-medium">{benefit}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
+      <div className="divider-center"></div>
+
       {/* Features Section */}
-      <section id="services" className="py-16 bg-gradient-to-br from-indigo-50 to-pink-50 w-full text-gray-800">
+      <section id="services" className="section bg-dark pattern-dots-dark w-full">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {content.features.map((feature: { title: string; description: string }, index: number) => (
-              <div key={index} className="flex bg-white p-6 rounded-xl shadow-md fun-card">
-                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-full flex items-center justify-center mr-4 flex-shrink-0 fun-icon">
-                  <span className="font-bold text-lg">{index + 1}</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
-              </div>
-            ))}
+          <div className="text-center mb-16">
+            <span className="bg-white/10 text-white text-sm font-medium px-4 py-1.5 rounded-lg inline-block mb-4">SERVICES</span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white max-w-4xl mx-auto">Our Services</h2>
           </div>
-          <div className="mt-16 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {content.features.map((feature: { title: string; description: string }, index: number) => {
+              return (
+                <div key={index} className="bg-[var(--gray-800)] p-6 md:p-8 rounded-xl shadow-lg hover:bg-[var(--gray-700)] transition-colors flex">
+                  <div className="bg-primary w-10 h-10 text-white rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
+                    <span className="font-medium">{index + 1}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">{feature.title}</h3>
+                    <p className="text-base text-[var(--gray-400)]">{feature.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="mt-12 md:mt-16 text-center">
             <Link 
               to="/services" 
-              className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-indigo-700 hover:to-pink-700 transition shadow-lg inline-flex items-center"
+              className="btn btn-outline-white px-7 py-3 inline-flex items-center"
             >
               View All Services
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
         </div>
       </section>
 
+      <div className="divider-center"></div>
+
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-16 bg-white w-full text-gray-800">
+      <section id="portfolio" className="section gradient-light w-full">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our {businessType} Website Portfolio</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+            <span className="bg-[var(--primary-color)]/10 text-[var(--primary-color)] text-sm font-medium px-4 py-1.5 rounded-lg inline-block mb-4">PORTFOLIO</span>
+            <h2 className="text-3xl md:text-4xl font-semibold max-w-4xl mx-auto">Our {businessType} Website Portfolio</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 fun-card">
-                <div className="bg-gradient-to-br from-indigo-500 to-pink-500 h-48 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 group-hover:opacity-0 transition-opacity"></div>
-                  <span className="text-white text-lg font-bold relative z-10 group-hover:scale-110 transition-transform duration-300">Portfolio {item}</span>
+              <div key={item} className="card overflow-hidden interactive-item">
+                <div className={`bg-primary h-40 md:h-48 flex items-center justify-center`}>
+                  <span className="text-white text-base md:text-lg font-medium">Portfolio {item}</span>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{businessType} Website {item}</h3>
-                  <p className="text-gray-600 mb-4">A custom-designed website with all the features a modern {businessType.toLowerCase()} needs.</p>
-                  <Link to="#" className="text-indigo-600 hover:text-pink-600 transition-colors font-medium inline-flex items-center">
+                <div className="card-content">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2">{businessType} Website {item}</h3>
+                  <p className="text-[var(--gray-600)] mb-4">A custom-designed website with all the features a modern {businessType.toLowerCase()} needs.</p>
+                  <Link to="#" className="text-[var(--primary-color)] hover:text-[var(--primary-dark)] transition-colors inline-flex items-center text-sm md:text-base">
                     View Details 
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -118,96 +124,113 @@ const HomePage = () => {
         </div>
       </section>
 
+      <div className="divider-center"></div>
+
       {/* Testimonial Section */}
-      <section id="testimonials" className="py-20 bg-gradient-to-br from-indigo-600 to-pink-600 text-white w-full relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">What Our Clients Say</h2>
-          <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-lg">
-            <div className="text-2xl italic mb-6 leading-relaxed">"{content.testimonial.quote}"</div>
-            <div className="font-semibold text-xl">{content.testimonial.author}</div>
-            <div className="text-indigo-200">{content.testimonial.business}</div>
+      <section id="testimonials" className="section gradient-blue-to-indigo pattern-dots-dark w-full">
+        <div className="container mx-auto px-4 text-center">
+          <div className="text-center mb-16">
+            <span className="bg-white/10 text-white text-sm font-medium px-4 py-1.5 rounded-lg inline-block mb-4">TESTIMONIALS</span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white max-w-4xl mx-auto">What Our Clients Say</h2>
+          </div>
+          <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm p-10 md:p-12 rounded-xl relative border border-white/20">
+            <svg className="w-12 h-12 text-white opacity-20 absolute top-6 left-6" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 8v6c0 2.2-1.8 4-4 4h-2v2c0 3.3 2.7 6 6 6v-2c-2.2 0-4-1.8-4-4v-2h4v-10h-6v6h2c1.1 0 2-0.9 2-2v-4h2zM26 8v6c0 2.2-1.8 4-4 4h-2v2c0 3.3 2.7 6 6 6v-2c-2.2 0-4-1.8-4-4v-2h4v-10h-6v6h2c1.1 0 2-0.9 2-2v-4h2z"></path>
+            </svg>
+            <div className="text-xl md:text-2xl italic mb-6 md:mb-8 leading-relaxed text-white">"{content.testimonial.quote}"</div>
+            <div className="font-semibold text-lg md:text-xl text-white">{content.testimonial.author}</div>
+            <div className="text-base text-white/70">{content.testimonial.business}</div>
           </div>
         </div>
       </section>
 
+      <div className="divider-center"></div>
+
       {/* Call to Action Section */}
-      <section className="py-16 bg-white w-full text-gray-800">
+      <section id="cta" className="section bg-light pattern-grid w-full">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{content.callToAction}</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 max-w-3xl mx-auto">{content.callToAction}</h2>
           <Link 
             to="#contact" 
-            className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-indigo-700 hover:to-pink-700 transition shadow-lg inline-block"
+            className="btn btn-primary px-8 py-3 md:px-10 md:py-4 text-base md:text-lg shadow-lg"
           >
             Get a Free Quote
           </Link>
         </div>
       </section>
 
+      <div className="divider-center"></div>
+
       {/* FAQ Section */}
-      <section id="faq" className="py-16 bg-gradient-to-br from-indigo-50 to-pink-50 w-full text-gray-800">
+      <section id="faq" className="section bg-dark w-full">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-          <div className="max-w-3xl mx-auto space-y-8">
+          <div className="text-center mb-16">
+            <span className="bg-white/10 text-white text-sm font-medium px-4 py-1.5 rounded-lg inline-block mb-4">FAQ</span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white max-w-4xl mx-auto">Frequently Asked Questions</h2>
+          </div>
+          <div className="max-w-3xl mx-auto space-y-6 md:space-y-8">
             {content.faqs.map((faq: { question: string; answer: string }, index: number) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md fun-card">
-                <h3 className="text-xl font-semibold mb-3">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
+              <div key={index} className="bg-[var(--gray-800)] p-6 md:p-8 rounded-xl border border-white/5 hover:bg-[var(--gray-700)] transition-colors">
+                <h3 className="text-lg md:text-xl font-semibold mb-3 text-white">{faq.question}</h3>
+                <p className="text-base text-[var(--gray-400)]">{faq.answer}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      <div className="divider-center"></div>
+
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-white w-full text-gray-800">
+      <section id="contact" className="section gradient-light w-full">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Contact Us</h2>
-          <div className="max-w-2xl mx-auto bg-gradient-to-br from-indigo-50 to-pink-50 p-8 rounded-xl shadow-lg">
+          <div className="text-center mb-16">
+            <span className="bg-[var(--primary-color)]/10 text-[var(--primary-color)] text-sm font-medium px-4 py-1.5 rounded-lg inline-block mb-4">CONTACT</span>
+            <h2 className="text-3xl md:text-4xl font-semibold max-w-4xl mx-auto">Contact Us</h2>
+          </div>
+          <div className="max-w-2xl mx-auto card p-8 md:p-10">
             <form>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-[var(--gray-600)] mb-2">Name</label>
                   <input 
                     type="text" 
                     id="name" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    className="w-full px-4 py-3 border border-[var(--gray-300)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-[var(--gray-600)] mb-2">Email</label>
                   <input 
                     type="email" 
                     id="email" 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    className="w-full px-4 py-3 border border-[var(--gray-300)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition"
                     placeholder="Your email"
                   />
                 </div>
               </div>
-              <div className="mb-6">
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+              <div className="mb-8">
+                <label htmlFor="subject" className="block text-sm font-medium text-[var(--gray-600)] mb-2">Subject</label>
                 <input 
                   type="text" 
                   id="subject" 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                  className="w-full px-4 py-3 border border-[var(--gray-300)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition"
                   placeholder="Subject"
                 />
               </div>
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <div className="mb-8">
+                <label htmlFor="message" className="block text-sm font-medium text-[var(--gray-600)] mb-2">Message</label>
                 <textarea 
                   id="message" 
                   rows={4} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                  className="w-full px-4 py-3 border border-[var(--gray-300)] rounded-lg focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition"
                   placeholder="Your message"
                 ></textarea>
               </div>
               <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-indigo-600 to-pink-600 text-white px-6 py-4 rounded-full font-bold hover:from-indigo-700 hover:to-pink-700 transition shadow-lg transform hover:-translate-y-1"
+                className="w-full btn btn-primary py-3 md:py-4"
               >
                 Send Message
               </button>
@@ -219,4 +242,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage; 
+export default HomePage;
